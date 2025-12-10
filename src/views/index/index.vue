@@ -56,7 +56,7 @@ function setTotalBalance() {
     let interestRate = new BigNumber(finance.interestRate);
     let period = new BigNumber(finance.period);
 
-    let perRate = interestRate.dividedBy(period);
+    let perRate = interestRate.dividedBy(86400).dividedBy(365);
 
     if (end.gt(investTime.plus(period))) {
       end = investTime.plus(period);

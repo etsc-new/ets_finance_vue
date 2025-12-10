@@ -55,8 +55,9 @@ function getReward(item) {
       .minus(item.investAmount).toNumber()
   } else {
     let finance = store.finances[item.financeId];
-    let interestRate = new BigNumber(finance.interestRate);
+    let interestRate = new BigNumber(finance.interestRate).dividedBy(86400).dividedBy(365);
     return new BigNumber(item.investAmount)
+      .multipliedBy(finance.period)
       .multipliedBy(interestRate)
       .toNumber()
   }
