@@ -33,11 +33,11 @@ const showDropdown = ref(true);
 const loading = ref(false);
 
 let options = [
-  {text: "7天 5%"},
-  {text: "30日 10%"},
-  {text: "90日 15%"},
-  {text: "180日 20%"},
-  {text: "360日 25%"},
+  {text: "7日年化5%"},
+  {text: "30日年化10%"},
+  {text: "90日年化15%"},
+  {text: "180日年化20%"},
+  {text: "360日年化25%"},
 ];
 
 // 点击遮罩或取消按钮关闭弹窗
