@@ -47,16 +47,16 @@ const onCancel = () => {
 
 // 点击确定按钮
 const doInvest = async () => {
+  if (Number(stakeIndex.value) < 0) {
+    showError(t('dayError'));
+    return;
+  }
+
   if (
     Number(etsAmount.value) < store.finances[stakeIndex.value].miniInvest ||
     Number(etsAmount.value) > Number(store.finances[stakeIndex.value].quota)
   ) {
     showError(t('numberError'));
-    return;
-  }
-
-  if (Number(stakeIndex.value) < 0) {
-    showError(t('dayError'));
     return;
   }
 
