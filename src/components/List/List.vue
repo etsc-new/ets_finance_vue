@@ -16,8 +16,8 @@ const getHeaders = () => [
   {key: 'index', label: t('index'), flex: 1},
   {key: 'date', label: t('date'), flex: 2},
   {key: 'principal', label: t('principal'), flex: 1},
-  {key: 'profit', label: t('profit'), flex: 1},
-  {key: 'action', label: t('action'), flex: 2}
+  {key: 'profit', label: t('profit'), flex: 2},
+  {key: 'action', label: "赎回", flex: 1}
 ];
 const headers = ref(getHeaders());
 watch(locale, () => {
@@ -145,7 +145,7 @@ defineExpose({});
         <span v-for="header in headers" :key="header.key" class="cell-item" :style="{ flex: header.flex || 1 }">
           <!-- 动态渲染对应字段 -->
           <template v-if="header.key === 'index'">
-            {{ item.id }}
+            {{ item.id + 1}}
           </template>
           <template v-else-if="header.key === 'date'">
             <div class="datetime-container">

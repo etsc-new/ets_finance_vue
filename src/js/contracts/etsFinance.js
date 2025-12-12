@@ -72,7 +72,7 @@ function parseOrders(list) {
   let orders = [];
   list.forEach((item, index) => {
     orders.push({
-      id: index,
+      id: parseInt(index),
       loading: false,
       financeId: new BigNumber(item[0]).toNumber(),
       investTime: new BigNumber(item[1]).toNumber(),
