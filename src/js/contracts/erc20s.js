@@ -3,6 +3,7 @@ import {getAddress} from "@/js/config";
 import {Interface} from "ethers";
 import BigNumber from "bignumber.js";
 import {getContract, getSelectedAddress, getSendPram} from "@/js/web3";
+import {postMessage} from "@/js/transaction";
 
 export async function getErc20(erc20Name) {
   let defaultAddress = await getAddress(erc20Name);
