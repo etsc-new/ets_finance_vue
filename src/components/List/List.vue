@@ -35,16 +35,16 @@ const props = defineProps({
 const finished = ref(true);
 
 function getButtonName(item) {
-  if (item.claimAmount > 0) return "已赎回"
+  if (item.claimAmount > 0) return "已赎"
   else {
     let investTime = new BigNumber(item.investTime);
     let end = new BigNumber(nowTimestamp());
     let finance = store.finances[item.financeId];
     let period = new BigNumber(finance.period);
     if (end.gt(investTime.plus(period))) {
-      return "待赎回"
+      return "待赎"
     } else {
-      return "未到期"
+      return "等待"
     }
   }
 }
@@ -59,7 +59,7 @@ function getReward(item) {
     return new BigNumber(item.investAmount)
       .multipliedBy(finance.period)
       .multipliedBy(interestRate)
-      .toNumber()
+      .toFixed(6, 1)
   }
 }
 

@@ -48,7 +48,7 @@ const onCancel = () => {
 // 点击确定按钮
 const doInvest = async () => {
   if (Number(stakeIndex.value) < 0) {
-    showError(t('dayError'));
+    showError("请选择对应天数理财产品");
     return;
   }
 
@@ -61,7 +61,7 @@ const doInvest = async () => {
   }
 
   if (store.financeInvested[stakeIndex.value]) {
-    showError("每个产品只能同时存储一次");
+    showError("当款理财已生效，勿重复购买");
     return;
   }
 
