@@ -52,11 +52,13 @@ const doInvest = async () => {
     return;
   }
 
-  if (
-    Number(etsAmount.value) < store.finances[stakeIndex.value].miniInvest ||
-    Number(etsAmount.value) > Number(store.finances[stakeIndex.value].quota)
-  ) {
-    showError(t('numberError'));
+  if (Number(etsAmount.value) < store.finances[stakeIndex.value].miniInvest) {
+    showError("最低购买额度1枚ETS");
+    return;
+  }
+
+  if (Number(etsAmount.value) > Number(store.finances[stakeIndex.value].quota)) {
+    showError("当款理财额度不足");
     return;
   }
 
