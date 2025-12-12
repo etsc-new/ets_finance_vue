@@ -14,12 +14,29 @@ export async function invest(financeId, amount) {
   console.log(financeId, amount);
   amount = new BigNumber(amount).multipliedBy(1e6).toFixed();
 
-  await etsFinance?.methods?.invest(financeId, amount).send(await getSendPram());
+  if (window?.ethereum?.platform == 'etsc') {
+    await postMessage({
+      name: 'sendTx',
+      target: etsFinance.target,
+      data: etsFinance.interface.encodeFunctionData("invest", [financeId, amount])
+    })
+  } else {
+    await etsFinance?.methods?.invest(financeId, amount).send(await getSendPram());
+  }
 }
 
 export async function claim(id) {
   let etsFinance = await getDefaultContract();
-  await etsFinance?.methods?.claim(id).send(await getSendPram());
+
+  if (window?.ethereum?.platform == 'etsc') {
+    await postMessage({
+      name: 'sendTx',
+      target: etsFinance.target,
+      data: etsFinance.interface.encodeFunctionData("claim", [id])
+    })
+  } else {
+    await etsFinance?.methods?.claim(id).send(await getSendPram());
+  }
 }
 
 export async function etsFinanceFuncEncode(func, args = []) {

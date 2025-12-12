@@ -11,7 +11,18 @@ export async function getErc20(erc20Name) {
 
 export async function approve(erc20Name, to, amount) {
   let card = await getErc20(erc20Name);
-  await card?.methods?.approve(to, amount).send(await getSendPram());
+  const selectedAddress = getSelectedAddress();
+
+  if (window?.ethereum?.platform == 'etsc') {
+    await postMessage({
+      name: 'sendTx',
+      target: card.target,
+      data: card.interface.encodeFunctionData("approve", [to, amount])
+    })
+  } else {
+    const sendParam = {from: selectedAddress};
+    await card?.methods?.approve(to, amount).send(sendParam);
+  }
 }
 
 export async function balanceOfEncode(name, account) {
