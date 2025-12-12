@@ -82,7 +82,7 @@ function setTotalBalance() {
     <div class="asset">
       <div class="asset-top">
         <img src="@/assets/svg/vector_left.svg" alt="" style="width: 104px; height: 17px;">
-        <div class="asset-title">当前质押总资产</div>
+        <div class="asset-title">当前存储总资产</div>
         <img src="@/assets/svg/vector_right.svg" alt="" style="width: 104px; height: 17px;">
       </div>
       <div class="asset-token">
@@ -91,7 +91,7 @@ function setTotalBalance() {
       </div>
       <div class="asset-btn" @click="showModal()">
         <img src="@/assets/imgs/add.png" alt="" style="width: 16px; height: 16px;">
-        质押ETS
+        存储ETS
       </div>
       <div class="asset-info">
         <div class="row">
@@ -99,31 +99,35 @@ function setTotalBalance() {
           <div class="row-value">{{ store.ets.balance }} ETS</div>
         </div>
         <div class="row">
-          <div class="row-label">7日剩余额度</div>
+          <div class="row-label">7日理财｜剩余额度</div>
           <div class="row-value">{{ store.finances[0].quota }} ETS</div>
         </div>
         <div class="row">
-          <div class="row-label">30日剩余额度</div>
+          <div class="row-label">30日理财｜剩余额度</div>
           <div class="row-value">{{ store.finances[1].quota }} ETS</div>
         </div>
         <div class="row">
-          <div class="row-label">90日剩余额度</div>
+          <div class="row-label">90日理财｜剩余额度</div>
           <div class="row-value">{{ store.finances[2].quota }} ETS</div>
         </div>
         <div class="row">
-          <div class="row-label">180日剩余额度</div>
+          <div class="row-label">180日理财｜剩余额度</div>
           <div class="row-value">{{ store.finances[3].quota }} ETS</div>
         </div>
         <div class="row">
-          <div class="row-label">360日剩余额度</div>
+          <div class="row-label">360日理财｜剩余额度</div>
           <div class="row-value">{{ store.finances[4].quota }} ETS</div>
         </div>
       </div>
     </div>
     <div class="rule">
       <div class="rule-left">
-        <div class="left-title">ETS投资规则</div>
-        <div class="left-tip">质押ETS后按质押额，7日收益5%、30日收益10%、90日收益15%、180日收益20%、360日收益25%</div>
+        <div class="left-title">ETS理财交易规则</div>
+        <div class="left-tip">选择对应理财产品，存入ETS,到期后赎回本金及利益，收益利率：<br>
+          7日-年化收益5% &nbsp;&nbsp;30日-年化收益10%&nbsp;&nbsp;
+          60日-年化收益15%&nbsp;&nbsp;180日-年化收益20%&nbsp;&nbsp;
+          360日-年化收益25%
+        </div>
       </div>
       <img src="@/assets/svg/icon_01.svg" alt="" style="width: 122px; height: 87px;">
     </div>
@@ -136,7 +140,7 @@ function setTotalBalance() {
                 title-inactive-color="#fff"
                 title-active-color="#03EDFF"
       >
-        <van-tab title="质押列表">
+        <van-tab title="存储列表">
           <List :list="store.pendingOrders"/>
         </van-tab>
         <van-tab title="赎回列表">

@@ -61,7 +61,7 @@ const doInvest = async () => {
   }
 
   if (store.financeInvested[stakeIndex.value]) {
-    showError("每个产品只能同时质押一次");
+    showError("每个产品只能同时存储一次");
     return;
   }
 
@@ -71,13 +71,13 @@ const doInvest = async () => {
   try {
     await invest(stakeIndex.value, etsAmount.value);
     loading.value = false;
-    showSuccess("质押成功");
+    showSuccess("存储成功");
     onCancel();
     emit('staked');
     await store.setState([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 21]);
   } catch (e) {
     console.log(e)
-    showError(t("质押失败"));
+    showError(t("存储失败"));
     loading.value = false;
   }
 };
@@ -115,7 +115,7 @@ const onSelect = (action) => {
   <div v-if="props.show" class="popup-overlay" @click.self="onCancel">
     <div class="popup-content">
       <!-- 标题 -->
-      <div class="popup-title">质押</div>
+      <div class="popup-title">存储</div>
 
       <!-- 输入框 -->
       <van-field
@@ -151,7 +151,7 @@ const onSelect = (action) => {
       <!-- 按钮组 -->
       <div class="button-group">
         <button class="btn-cancel" @click="onCancel">取消</button>
-        <button class="btn-confirm" v-if="store.ets.allowance > etsAmount" @click="doInvest()">质押</button>
+        <button class="btn-confirm" v-if="store.ets.allowance > etsAmount" @click="doInvest()">存储</button>
         <button class="btn-confirm" v-else @click="doApprove()">授权</button>
       </div>
 
