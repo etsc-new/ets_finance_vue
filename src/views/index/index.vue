@@ -123,7 +123,7 @@ function setTotalBalance() {
     <div class="rule">
       <div class="rule-left">
         <div class="left-title">ETS理财交易规则</div>
-        <div class="left-tip">选择对应理财产品，存入ETS,到期后赎回本金及利益，收益利率：<br>
+        <div class="left-tip">选择对应理财产品，存入ETS,到期后赎回本金及利息，收益利率：<br>
           7日-年化收益5% &nbsp;&nbsp;30日-年化收益10%&nbsp;&nbsp;
           60日-年化收益15%&nbsp;&nbsp;180日-年化收益20%&nbsp;&nbsp;
           360日-年化收益25%
