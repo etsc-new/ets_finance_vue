@@ -61,7 +61,7 @@ function setTotalBalance() {
     if (end.gt(investTime.plus(period))) {
       end = investTime.plus(period);
     }
-    let reward = end.minus(investTime).multipliedBy(perRate);
+    let reward = end.minus(investTime).multipliedBy(perRate).multipliedBy(investAmount);
     amount = investAmount.plus(reward).plus(amount);
   }
 
