@@ -165,8 +165,8 @@ defineExpose({});
             <van-button
               size="small"
               type="primary"
-              :color="getButtonName(item) != '待赎回' ? '#1087A1' : '#05DAEB'"
-              :style="{ color: getButtonName(item) != '待赎回' ? '#015059' : '' }"
+              :color="getButtonName(item) != '待赎' ? '#1087A1' : '#05DAEB'"
+              :style="{ color: getButtonName(item) != '待赎' ? '#015059' : '' }"
               @click="doClaim(item)"
             >
               <template v-if="item.loading">
