@@ -100,7 +100,7 @@ function getEnd(item) {
 // });
 
 const doClaim = async (item) => {
-  if (getButtonName(item) !== '待赎回') return;
+  if (getButtonName(item) !== '待赎') return;
   if (item.loading) return
   item.loading = true;
 
